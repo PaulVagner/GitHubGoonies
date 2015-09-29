@@ -1,12 +1,13 @@
 import Foundation
 
 
+
 let API_ROOT = "https://api.github.com" // Global Constants defined
 
 let myProfileURL = API_ROOT + "/users/paulvagner"
 
 
-let users: [[String:AnyObject?]] = [
+var users: [[String:AnyObject?]] = [
     [
         "login": "PaulVagner",
         "id": 14568315,
@@ -43,3 +44,70 @@ let users: [[String:AnyObject?]] = [
     ]
 ]
 
+class GitHubRequest: NSObject {
+
+    class func requestUserInfo(username: String, completion: (responseInfo: AnyObject?) -> ()) {
+      
+        let userURL = API_ROOT + "/users/" + username //string object of URL
+        
+        print(userURL)
+    
+        if let url = NSURL(string: userURL) {
+         
+            let request = NSURLRequest(URL: url) // like putting an address on an envelope but not send it out.
+            
+           let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+            
+            
+            
+            
+            if let data = data {
+            
+                
+                do {
+                    
+                
+              let info = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)
+                   
+                completion(responseInfo: info)
+                    
+                    
+                    print(info)
+            
+                } catch {
+                
+                   // print(data)
+
+                
+                }
+            }
+            
+            
+            
+           
+           
+           }) // "{" "}" represent CLOSURE or BLOCK
+            
+            task.resume()
+            
+            
+        }
+        
+        
+    }
+    
+  // This line pulls the information from a server...
+    class func request(info: [String:AnyObject], completion: (responseInfo: AnyObject?) -> ()) {
+        
+       
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+}
