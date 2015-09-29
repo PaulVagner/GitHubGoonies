@@ -1,10 +1,5 @@
-//
+// This controls the Goonies Table View Controller...
 //  GoonieTableViewCell.swift
-//  GitHubGoonies
-//
-//  Created by Paul Vagner on 9/28/15.
-//  Copyright © 2015 Paul Vagner. All rights reserved.
-//
 
 import UIKit
 
