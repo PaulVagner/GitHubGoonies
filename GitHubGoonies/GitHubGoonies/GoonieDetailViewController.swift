@@ -12,6 +12,8 @@ class GoonieDetailViewController: UIViewController {
 
     @IBOutlet weak var usernameLabel: UILabel!
   
+    @IBOutlet weak var repocountLabel: UILabel!
+   
     var userIndex: Int!
     
     
@@ -24,6 +26,13 @@ class GoonieDetailViewController: UIViewController {
         let user = users[userIndex]
         
         usernameLabel.text = user["login"] as? String
+        
+        
+        if let repoCount = user["public_repos"] as? Int {
+            
+            repocountLabel.text = "\(repoCount)"
+            
+        }
         
         
         
