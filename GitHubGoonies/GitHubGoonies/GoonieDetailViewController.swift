@@ -17,12 +17,9 @@ class GoonieDetailViewController: UIViewController {
     var userIndex: Int!
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+    
         let user = users[userIndex]
         
         usernameLabel.text = user["login"] as? String
@@ -33,9 +30,6 @@ class GoonieDetailViewController: UIViewController {
             repocountLabel.text = "\(repoCount)"
             
         }
-        
-        
-        
         
         // Do any additional setup after loading the view.
     }
