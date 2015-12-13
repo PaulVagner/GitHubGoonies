@@ -77,23 +77,14 @@ class GitHubRequest: NSObject {
                     }
                 }
                 
-                
-                
-                
-                
             }) // "{" "}" represent CLOSURE or BLOCK
             
             task.resume()
-            
         }
-        
     }
     
     // This line pulls the information from a server...
     class func request(info: [String:AnyObject], completion: (responseInfo: AnyObject?) -> ()) {
         
     }
-    
-    
-    
 }

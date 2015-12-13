@@ -30,27 +30,20 @@ class GooniesTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return users.count
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         //queuing code to queu and deque the cell data from the "Goonie Cell"
         let cell = tableView.dequeueReusableCellWithIdentifier("GoonieCell", forIndexPath: indexPath) as! GoonieTableViewCell
 
-        
-        
          let user = users[indexPath.row]
         
         if let username = user["login"] as? String {
            
-          
-            
             cell.usernameLabel.text = username
             
         }
@@ -67,23 +60,14 @@ class GooniesTableViewController: UITableViewController {
                     if let image = UIImage(data: data) {
                         
                       cell.avatarImageView.image = image
-                        
-                        
                     }
                 }
-                
             }
-        
         } else {
-            
             cell.avatarImageView.hidden = true
-            
         }
-        
         // Configure the cell...
-
         return cell
-    
     }
     
     //MARK: -> Navigation
